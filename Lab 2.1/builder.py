@@ -10,8 +10,12 @@ class CodeBuilder:
     def __str__(self):
         lines = [
             f"class {self.root_name}:",
-            "  def __init__(self):"
         ]
+
+        if not self.fields:
+            lines.append("    pass")
+        else:
+            lines.append("    def __init__(self):")
 
         for name, value in self.fields:
             lines.append(f"    self.{name} = {value}")

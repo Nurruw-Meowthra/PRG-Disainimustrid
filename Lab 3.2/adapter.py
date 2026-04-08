@@ -7,11 +7,17 @@ def calculate_area(rc):
     return rc.width * rc.height
 
 
-class SquareToRectangleAdapter(Square):
+class SquareToRectangleAdapter:
     def __init__(self, square):
-        super().__init__(square.side)
-        self.width = square.side
-        self.height = square.side
+        self.square = square
+
+    @property
+    def width(self):
+        return self.square.side
+
+    @property
+    def height(self):
+        return self.square.side
 
 
 
